@@ -35,17 +35,21 @@ The project was architected using layers, each layer has its own responsibility 
 
 An diagram of the architecture can be seen below:
 
+![MVP Pattern](imgs/architecture.png)
+
 The UI uses the MVP (Model-View-Presenter) pattern to display the data to the user. The MVP pattern was used to make the code more testable and to make the code more decoupled.
 
 - **Model**: Much more than a simple data class, the model is a implementation of the domain use case on `Data Layer`. It is responsible for retrieving the data from the API or from the local database.
 
-- **Presenter**: The presenter is responsible for recovering, formatting the data and for handling the user's input. It communicates with the model through the use cases. Additionally, it communicates with the view through the `ViewModel` pattern.
+- **Presenter**: The presenter is responsible for recovering, formatting the data and for handling the user's input. It communicates with the model through the use cases. Additionally, it communicates with the view through the `ViewModel` pattern, across the `Getx Streams`.
 
 - **View**: The view is responsible for displaying the data to the user and for receiving the user's input. It communicates with the presenter through the `ViewModel` pattern.
 
 - **ViewModel**: The view model is a object the contains the data that will be displayed to the user. It is used to make the communication between the view and the presenter more decoupled.
 
 The diagram of the MVP pattern can be seen below:
+
+![MVP Pattern](imgs/mvp_pattern.png)
 
 #### Desing Patterns
 
