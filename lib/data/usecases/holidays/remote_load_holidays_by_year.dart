@@ -16,7 +16,7 @@ class RemoteLoadHolidadys implements LoadHolidaysByYear {
   @override
   Future<List<HolidayEntity>> load(String year) async {
     try {
-      final url = '${this.url}?year=$year';
+      final url = '${this.url}/$year';
       final httpResponse = await httpClient.request(url: url, method: 'get');
       if (httpResponse == null) {
         return [];

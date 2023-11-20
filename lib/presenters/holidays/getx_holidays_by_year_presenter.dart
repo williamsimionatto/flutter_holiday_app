@@ -1,4 +1,3 @@
-import 'package:flutter_holiday_app/ui/extensions/datetime_extension.dart';
 import 'package:get/get.dart';
 
 import 'package:flutter_holiday_app/data/protocols/http/http.dart';
@@ -6,6 +5,7 @@ import 'package:flutter_holiday_app/domain/usecases/holidays/holidays.dart';
 
 import 'package:flutter_holiday_app/presenters/mixins/mixins.dart';
 
+import 'package:flutter_holiday_app/ui/extensions/extensions.dart';
 import 'package:flutter_holiday_app/ui/pages/holidays/holidays.dart';
 import 'package:flutter_holiday_app/ui/pages/viewmodel/viewmodel.dart';
 
@@ -19,9 +19,6 @@ class GetxHolidaysPresenter extends GetxController
   });
 
   @override
-  Rx<String> year = Rx<String>(DateTime.now().year.toString());
-
-  @override
   Rx<List<HolidayViewModel>> holidays = Rx<List<HolidayViewModel>>([]);
 
   @override
@@ -29,10 +26,11 @@ class GetxHolidaysPresenter extends GetxController
       holidays.stream.map((holidays) => holidays.toList());
 
   @override
-  Future<void> load() async {
+  Future<void> load(String year) async {
     try {
       isLoading = true;
-      final holidaysByYear = await loadHolidaysByYear.load(year.value);
+      final holidaysByYear = await loadHolidaysByYear.load(year);
+      await Future.delayed(const Duration(seconds: 1));
 
       holidays.value = holidaysByYear
           .map((holiday) => HolidayViewModel(
@@ -50,10 +48,5 @@ class GetxHolidaysPresenter extends GetxController
     } finally {
       isLoading = false;
     }
-  }
-
-  @override
-  void changeYear(String year) {
-    this.year.value = year;
   }
 }

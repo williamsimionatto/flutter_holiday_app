@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import 'package:flutter_holiday_app/ui/components/app_colors.dart';
+import 'package:flutter_holiday_app/ui/pages/holidays/holidays.dart';
+import 'package:flutter_holiday_app/ui/components/components.dart';
 import 'package:flutter_holiday_app/ui/pages/holidays/components/components.dart';
 
 class YearList extends StatefulWidget {
@@ -20,6 +22,8 @@ class _YearListState extends State<YearList> {
 
   @override
   Widget build(BuildContext context) {
+    final presenter = Provider.of<HolidaysByYearPresenter>(context);
+
     return ListView.builder(
       scrollDirection: Axis.horizontal,
       itemCount: widget.years.length,
@@ -32,7 +36,12 @@ class _YearListState extends State<YearList> {
             children: <Widget>[
               YearItem(
                 name: widget.years[index].toString(),
-                onTap: () => _onTapYear(widget.years[index]),
+                onTap: () => {
+                  setState(() {
+                    selectedYear = widget.years[index];
+                  }),
+                  presenter.load(selectedYear.toString()),
+                },
                 color: AppColors.primaryColor,
                 isSelected: selectedYear == widget.years[index],
               ),
@@ -41,11 +50,5 @@ class _YearListState extends State<YearList> {
         );
       },
     );
-  }
-
-  void _onTapYear(int year) {
-    setState(() {
-      selectedYear = year;
-    });
   }
 }
