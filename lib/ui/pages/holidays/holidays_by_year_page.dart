@@ -2,10 +2,16 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_holiday_app/ui/components/components.dart';
 import 'package:flutter_holiday_app/ui/pages/holidays/components/components.dart';
-import 'package:flutter_holiday_app/ui/pages/viewmodel/holiday_viewmodel.dart';
+import 'package:flutter_holiday_app/ui/pages/holidays/holidays.dart';
+import 'package:flutter_holiday_app/ui/pages/viewmodel/viewmodel.dart';
 
 class HolidaysByYearPage extends StatefulWidget {
-  const HolidaysByYearPage({Key? key}) : super(key: key);
+  final HolidaysByYearPresenter presenter;
+
+  const HolidaysByYearPage({
+    Key? key,
+    required this.presenter,
+  }) : super(key: key);
 
   @override
   State<HolidaysByYearPage> createState() => _HolidaysByYearPageState();

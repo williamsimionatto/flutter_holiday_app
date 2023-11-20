@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_holiday_app/ui/pages/holidays/holidays_by_year_page.dart';
+
+import 'package:flutter_holiday_app/main/factories/pages/holidays/holidays.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class MainApp extends StatelessWidget {
       getPages: [
         GetPage(
           name: '/holidays',
-          page: () => const HolidaysByYearPage(),
+          page: () => makeHolidaysByYearPage(),
         ),
       ],
     );
