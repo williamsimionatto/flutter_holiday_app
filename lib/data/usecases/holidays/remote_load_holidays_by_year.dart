@@ -4,7 +4,7 @@ import 'package:flutter_holiday_app/data/protocols/http/http.dart';
 import 'package:flutter_holiday_app/domain/entities/entities.dart';
 import 'package:flutter_holiday_app/domain/usecases/holidays/holidays.dart';
 
-class RemoteLoadHolidadys implements LoadHolidays {
+class RemoteLoadHolidadys implements LoadHolidaysByYear {
   final String url;
   final HttpClient httpClient;
 
@@ -14,8 +14,9 @@ class RemoteLoadHolidadys implements LoadHolidays {
   });
 
   @override
-  Future<List<HolidayEntity>> load() async {
+  Future<List<HolidayEntity>> load(String year) async {
     try {
+      final url = '${this.url}?year=$year';
       final httpResponse = await httpClient.request(url: url, method: 'get');
       if (httpResponse == null) {
         return [];
