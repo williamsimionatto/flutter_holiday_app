@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_holiday_app/ui/components/components.dart';
-import 'package:flutter_holiday_app/ui/pages/holidays/components/year_item.dart';
-import 'package:flutter_holiday_app/ui/pages/holidays/components/year_list.dart';
+import 'package:flutter_holiday_app/ui/pages/holidays/components/components.dart';
+import 'package:flutter_holiday_app/ui/pages/viewmodel/holiday_viewmodel.dart';
 
 class HolidaysByYearPage extends StatefulWidget {
   const HolidaysByYearPage({Key? key}) : super(key: key);
@@ -41,8 +41,30 @@ class _HolidaysByYearPageState extends State<HolidaysByYearPage> {
               padding: const EdgeInsets.only(right: 12, left: 4),
               child: YearList(years: years),
             ),
-          )
+          ),
+          const SizedBox(height: 30),
+          Expanded(
+            child: ListView.builder(
+              itemCount: buildList().length,
+              itemBuilder: (context, index) {
+                final holiday = buildList()[index];
+                return HolidayCard(holiday: holiday);
+              },
+            ),
+          ),
         ],
+      ),
+    );
+  }
+
+  List<HolidayViewModel> buildList() {
+    return List.generate(
+      10,
+      (index) => const HolidayViewModel(
+        date: '01/01/2023',
+        dayOfWeek: 'Segunda-feira',
+        name: 'Confraternização Universal',
+        type: 'National',
       ),
     );
   }

@@ -42,7 +42,7 @@ class YearItem extends StatelessWidget {
             name.toUpperCase(),
             style: const TextStyle(
               fontSize: 12,
-              color: AppColors.primaryColor,
+              color: AppColors.secondaryColor,
               fontWeight: FontWeight.bold,
             ),
           ),

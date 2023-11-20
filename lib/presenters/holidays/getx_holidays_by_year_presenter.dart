@@ -1,3 +1,4 @@
+import 'package:flutter_holiday_app/ui/extensions/datetime_extension.dart';
 import 'package:get/get.dart';
 
 import 'package:flutter_holiday_app/data/protocols/http/http.dart';
@@ -37,7 +38,8 @@ class GetxHolidaysPresenter extends GetxController
           .map((holiday) => HolidayViewModel(
                 name: holiday.name,
                 type: holiday.type,
-                date: holiday.date,
+                date: holiday.date.format(),
+                dayOfWeek: holiday.date.dayOfWeek(),
               ))
           .toList();
     } on HttpResponseException catch (_) {

@@ -33,7 +33,7 @@ class _YearListState extends State<YearList> {
               YearItem(
                 name: widget.years[index].toString(),
                 onTap: () => _onTapYear(widget.years[index]),
-                color: AppColors.secondaryColor,
+                color: AppColors.primaryColor,
                 isSelected: selectedYear == widget.years[index],
               ),
             ],
