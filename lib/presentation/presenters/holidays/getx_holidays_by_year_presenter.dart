@@ -22,7 +22,7 @@ class GetxHolidaysByYearPresenter extends GetxController
   Rx<List<HolidayViewModel>> holidays = Rx<List<HolidayViewModel>>([]);
 
   @override
-  Stream<List<HolidayViewModel>?>? get holidaysStream =>
+  Stream<List<HolidayViewModel>?> get holidaysStream =>
       holidays.stream.map((holidays) => holidays.toList());
 
   @override
