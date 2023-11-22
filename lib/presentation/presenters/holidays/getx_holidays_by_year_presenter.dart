@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:flutter_holiday_app/data/protocols/http/http.dart';
 import 'package:flutter_holiday_app/domain/usecases/holidays/holidays.dart';
 
-import 'package:flutter_holiday_app/presenters/mixins/mixins.dart';
+import 'package:flutter_holiday_app/presentation/mixins/mixins.dart';
 
 import 'package:flutter_holiday_app/ui/extensions/extensions.dart';
 import 'package:flutter_holiday_app/ui/pages/holidays/holidays.dart';
