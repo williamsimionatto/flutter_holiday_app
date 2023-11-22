@@ -3,18 +3,18 @@ import 'package:get/get.dart';
 import 'package:flutter_holiday_app/data/protocols/http/http.dart';
 import 'package:flutter_holiday_app/domain/usecases/holidays/holidays.dart';
 
-import 'package:flutter_holiday_app/presenters/mixins/mixins.dart';
+import 'package:flutter_holiday_app/presentation/mixins/mixins.dart';
 
 import 'package:flutter_holiday_app/ui/extensions/extensions.dart';
 import 'package:flutter_holiday_app/ui/pages/holidays/holidays.dart';
 import 'package:flutter_holiday_app/ui/pages/viewmodel/viewmodel.dart';
 
-class GetxHolidaysPresenter extends GetxController
+class GetxHolidaysByYearPresenter extends GetxController
     with LoadingManager
     implements HolidaysByYearPresenter {
   late LoadHolidaysByYear loadHolidaysByYear;
 
-  GetxHolidaysPresenter({
+  GetxHolidaysByYearPresenter({
     required this.loadHolidaysByYear,
   });
 
@@ -22,7 +22,7 @@ class GetxHolidaysPresenter extends GetxController
   Rx<List<HolidayViewModel>> holidays = Rx<List<HolidayViewModel>>([]);
 
   @override
-  Stream<List<HolidayViewModel>?>? get holidaysStream =>
+  Stream<List<HolidayViewModel>?> get holidaysStream =>
       holidays.stream.map((holidays) => holidays.toList());
 
   @override
