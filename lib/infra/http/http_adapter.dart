@@ -33,7 +33,9 @@ class HttpAdapter implements HttpClient {
         response = await futureResponse;
       }
     } catch (error) {
-      throw HttpError.serverError;
+      throw const HttpResponseException(
+        message: 'Algo de errado aconteceu. Tente novamente em breve.',
+      );
     }
 
     return _handleResponse(response);
@@ -52,7 +54,9 @@ class HttpAdapter implements HttpClient {
       case 404:
         throw HttpResponseException(message: body['error']);
       default:
-        throw HttpError.serverError;
+        throw const HttpResponseException(
+          message: 'Algo de errado aconteceu. Tente novamente em breve.',
+        );
     }
   }
 }
