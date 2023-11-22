@@ -45,4 +45,10 @@ void main() {
       ),
     ]);
   });
+
+  test('Should return empty list if HttpClient returns 204', () async {
+    httpClient.mockRequest(null);
+    final response = await sut.load(year);
+    expect(response, []);
+  });
 }
