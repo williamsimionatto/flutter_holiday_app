@@ -1,4 +1,5 @@
 import 'package:faker/faker.dart';
+import 'package:flutter_holiday_app/data/protocols/http/http.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
 
@@ -50,5 +51,16 @@ void main() {
     httpClient.mockRequest(null);
     final response = await sut.load(year);
     expect(response, []);
+  });
+
+  test('Should throw HttpResponseException if HttpClient returns 404',
+      () async {
+    httpClient.mockRequestError(Exception('any_error'));
+    expect(() => sut.load(year), throwsA(isA<HttpResponseException>()));
+  });
+
+  test('Should throw UnexpectedError if HttpClient returns 500', () async {
+    httpClient.mockRequestError(Exception('any_error'));
+    expect(() => sut.load(year), throwsA(isA<HttpResponseException>()));
   });
 }
