@@ -9,12 +9,12 @@ import 'package:flutter_holiday_app/ui/extensions/extensions.dart';
 import 'package:flutter_holiday_app/ui/pages/holidays/holidays.dart';
 import 'package:flutter_holiday_app/ui/pages/viewmodel/viewmodel.dart';
 
-class GetxHolidaysPresenter extends GetxController
+class GetxHolidaysByYearPresenter extends GetxController
     with LoadingManager
     implements HolidaysByYearPresenter {
   late LoadHolidaysByYear loadHolidaysByYear;
 
-  GetxHolidaysPresenter({
+  GetxHolidaysByYearPresenter({
     required this.loadHolidaysByYear,
   });
 
