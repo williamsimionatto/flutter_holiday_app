@@ -11,6 +11,8 @@ Flutter Holiday App is a simple app that displays a list of national holidays fr
 
 ## Instructions for running the tests
 1. Run `flutter test --coverage` to run all tests
+2. Run `genhtml coverage/lcov.info -o coverage/html` to generate the coverage report
+3. Open the `index.html` file in the `coverage/html` folder to see the coverage report
 
 ## Architecture and Design Patterns
 
