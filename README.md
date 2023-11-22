@@ -72,3 +72,33 @@ The project was developed using the following tests:
 - **Integration Tests**: The integration tests were used to test the integration between the layers of the application. This tests are applied to the `Data Layer`, `Domain Layer`, `Infra Layear`, `Presentation Layer` and `UI Layer`. Additionally, in the `Infra Layer` the integration tests were used to test the integration with external services and dependencies.
 
 All tests utilize the `Mocks` and `Spies` concepts to make the tests more isolated and to make the tests more decoupled.
+
+## Screenshots
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <img src="imgs/loading.png" width="400" height="400" />
+          <br>
+          <sub>
+            <b>Loading State</b>
+          </sub>
+      </td>
+      <td align="center">
+          <img src="imgs/2023_holidays.png" width="400" height="400" />
+          <br>
+          <sub>
+            <b>2023 Holidays</b>
+          </sub>
+      </td>
+      <td align="center">
+          <img src="imgs/2025_holidays.png" width="400" height="400" />
+          <br>
+          <sub>
+            <b>2025 Holidays</b>
+          </sub>
+      </td>
+    </tr>
+  </table>
+<div>
