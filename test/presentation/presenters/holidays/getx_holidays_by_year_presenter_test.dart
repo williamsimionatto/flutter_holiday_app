@@ -1,3 +1,4 @@
+import 'package:flutter_holiday_app/data/protocols/http/http.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
 
@@ -51,6 +52,21 @@ void main() {
         ],
       ),
     ));
+    await sut.load(year);
+  });
+
+  test('Should emit correct events on laod data fails', () async {
+    loadHolidaysByYear.mockLoadError(
+      const HttpResponseException(message: 'error'),
+    );
+
+    sut.holidaysStream.listen(
+      null,
+      onError: expectAsync1(
+        (error) => expect(error, 'Erro ao carregar os feriados'),
+      ),
+    );
+
     await sut.load(year);
   });
 }
