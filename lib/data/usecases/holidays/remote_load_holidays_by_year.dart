@@ -4,11 +4,11 @@ import 'package:flutter_holiday_app/data/protocols/http/http.dart';
 import 'package:flutter_holiday_app/domain/entities/entities.dart';
 import 'package:flutter_holiday_app/domain/usecases/holidays/holidays.dart';
 
-class RemoteLoadHolidadys implements LoadHolidaysByYear {
+class RemoteLoadHolidadysByYear implements LoadHolidaysByYear {
   final String url;
   final HttpClient httpClient;
 
-  RemoteLoadHolidadys({
+  RemoteLoadHolidadysByYear({
     required this.url,
     required this.httpClient,
   });
